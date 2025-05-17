@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viktor Kozak - Portfolio</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        html {
+            scroll-padding-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/image/logoblanc.svg" alt="Logo" />
+            Kozak.
+        </div>
+        <div class="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">A propos</a></li>
+                <li><a href="#service">Compétences</a></li>
+                <li><a href="#savoir">Savoir</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- hero section -->
+    <div class="hero" id="home">
+        <div class="hero-content">
+            <div class="portfolio-title">Portfolio</div>
+            <h1>Viktor Kozak</h1>
+            <h2>Étudiant en Géographie</h2>
+            <div class="button">
+                <a href="assets/cv/mon-cv.pdf" target="_blank" class="btn">CV</a>
+                <button type="button" class="btn2">Me contacter</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="assets/image/image (3).png" alt="">
+        </div>
+    </div>
+
+    <a href="#about" class="scroll-down">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+        </svg>
+    </a>
+
+    <section id="about" class="intro">
+        <h2>A propos de moi</h2>
+        <p>Actuellement en licence de Géographie et Aménagement à la Sorbonne, je me spécialise progressivement dans l’analyse géospatiale et la télédétection. Je développe mes compétences en SIG et géomatique, notamment à travers l’apprentissage de Python et ArcGIS Pro, afin d’exploiter efficacement les données spatiales pour divers domaines d’application.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="service" class="skills-section">
+        <h2>Compétences</h2>
+        <!-- Bloc Back-end -->
+        <div class="skill-category">
+            <h3>Back-end</h3>
+            <div class="skills-grid">
+                <div class="skill"><img src="assets/icons/python.svg" alt="Python"><p>Python</p></div>
+                <div class="skill"><img src="assets/icons/sql.svg" alt="SQL"><p>SQL</p></div>
+                <div class="skill"><img src="assets/icons/postgresql.svg" alt="PostgreSQL"><p>PostgreSQL</p></div>
+                <div class="skill"><img src="assets/icons/geopandas.svg" alt="GeoPandas"><p>GeoPandas</p></div>
+                <div class="skill"><img src="assets/icons/rasterio.svg" alt="Rasterio"><p>Rasterio</p></div>
+            </div>
+        </div>
+        <!-- Bloc Carto -->
+        <div class="skill-category">
+            <h3>SIG</h3>
+            <div class="skills-grid">
+                <div class="skill"><img src="assets/icons/arcgis-pro.svg" alt="ArcGis"><p>ArcGis PRO</p></div>
+                <div class="skill"><img src="assets/icons/terrset.svg" alt="TerrSett"><p>TerrSett</p></div>
+                <div class="skill"><img src="assets/icons/qgis.svg" alt="QGIS"><p>QGIS</p></div>
+            </div>
+        </div>
+        <!-- Bloc Design -->
+        <div class="skill-category">
+            <h3>Design</h3>
+            <div class="skills-grid">
+                <div class="skill"><img src="assets/icons/illustrator.svg" alt="Illustrator"><p>Illustrator</p></div>
+                <div class="skill"><img src="assets/icons/photoshop.svg" alt="Photoshop"><p>Photoshop</p></div>
+                <div class="skill"><img src="assets/icons/lightroom.svg" alt="Lightroom"><p>Lightroom</p></div>
+            </div>
+        </div>
+    </section>
+    <section class="neon-section">
+        <div class="neon-shadow"></div>
+    </section>
+
+    <!-- Savoir-faire Section -->
+    <section id="savoir" class="savoir">
+        <h2>Savoir-faire</h2>
+        <div class="savoir-container">
+            <div class="savoir-item">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="60" height="60" viewBox="0 0 24 24" 
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                    class="savoir-icon">
+                    <path d="M13 7 9 3 5 7l4 4"/>
+                    <path d="m17 11 4 4-4 4-4-4"/>
+                    <path d="m8 12 4 4 6-6-4-4Z"/>
+                    <path d="m16 8 3-3"/>
+                    <path d="M9 21a6 6 0 0 0-6-6"/>
+                </svg>
+                <h3>Télédétection</h3>
+                <p>Prédire et modéliser les impacts sur le changement d'occupation et d'usage des sols.</p>
+            </div>
+
+            <div class="savoir-item">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="60" height="60" viewBox="0 0 24 24" 
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                    class="savoir-icon">
+                    <path d="m8 11 2 2 4-4"/>
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.3-4.3"/>
+                </svg>
+                <h3>Analyse Spatiale</h3>
+                <p>Utiliser des méthodes statistiques pour extraire des informations utiles des données géospatiales.</p>
+            </div>
+            <div class="savoir-item">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="60" height="60" viewBox="0 0 24 24" 
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                    class="savoir-icon">
+                    <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                    <path d="M3 5V19A9 3 0 0 0 21 19V5"/>
+                    <path d="M3 12A9 3 0 0 0 21 12"/>
+                </svg>
+
+                <h3>DataViz</h3>
+                <p>Représentation visuelle de données géographiques avec des outils graphiques et cartographiques.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="projects-header">
+            <div class="title-block">
+                <h4>Creative Direction</h4>
+                <h2>Projets <span>principaux</span></h2>
+            </div>
+        </div>
+        <div class="project-grid">
+            <a href="#" class="project-card card1" draggable="false">
+                <h3>Sujet 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="project-image">
+                    <img src="assets/projets/projet1.jpg" alt="Projet 1">
+                </div>
+            </a>
+            <a href="#" class="project-card card2" draggable="false">
+                <h3>Sujet 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="project-image">
+                    <img src="assets/projets/projet2.jpg" alt="Projet 2">
+                </div>
+            </a>
+            <a href="#" class="project-card card3" draggable="false">
+                <h3>Sujet 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="project-image">
+                    <img src="assets/projets/projet3.jpg" alt="Projet 3">
+                </div>
+            </a>
+            <a href="#" class="project-card card4" draggable="false">
+                <h3>Sujet 4</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="project-image">
+                    <img src="assets/projets/projet4.jpg" alt="Projet 4">
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Modale Projet -->
+    <div id="project-modal" class="modal">
+        <button class="modal-nav prev" aria-label="Projet précédent">&lt;</button>
+        <div class="modal-content">
+            <span class="modal-close" aria-label="Fermer">&times;</span>
+            <div class="modal-scroll">
+                <div class="project-header">
+                    <div class="project-header-main">
+                        <h2 id="modal-title"></h2>
+                        <div class="project-meta">
+                            <span class="project-date" id="modal-date"></span>
+                            <span class="project-type" id="modal-type"></span>
+                            <span class="project-client" id="modal-client"></span>
+                        </div>
+                    </div>
+                </div>
+                <img id="modal-image" src="" alt="">
+                <div class="modal-inner">
+                    <div id="modal-description"></div>
+                </div>
+            </div>
+        </div>
+        <button class="modal-nav next" aria-label="Projet suivant">&gt;</button>
+    </div>
+
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <div class="contact-column logo-column">
+                <img src="assets/image/logoblanc.svg" alt="Logo Company">
+                <p>Viktor Kozak</p>
+            </div>
+            <div class="contact-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="mailto:vkzk204@gmail.com">vkzk204@gmail.com</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+            <div class="contact-column">
+                <h3>Liens Utiles</h3>
+                <ul>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">Projets</a></li>
+                </ul>
+            </div>
+            <div class="contact-column">
+                <h3>Réseaux</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="copyright">
+            <p>© Copyright. Tous droits réservés.</p>
+        </div>
+    </section>
+
+    <!-- Modale Contact (à placer ici, en dehors de la section) -->
+    <div id="contact-modal" class="modal contact-modal">
+        <div class="modal-content contact-modal-content">
+            <span class="modal-close contact-close">&times;</span>
+            <h3>Contactez-moi</h3>
+            <form>
+                <label for="name">Nom</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modale Coordonnées (à placer juste après le contact-modal) -->
+    <div id="coord-modal" class="modal coord-modal">
+        <div class="modal-content coord-modal-content">
+            <span class="modal-close coord-close">&times;</span>
+            <h3>Mes coordonnées</h3>
+            <ul class="coord-list">
+                <li><strong>Téléphone :</strong> 06 12 34 56 78</li>
+                <li><strong>email :</strong> vkzk204@gmail.com</li>
+                <li><strong>Ville :</strong> Paris, France</li>
+                <li><strong>LinkedIn :</strong> <a href="#">viktorkozak</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
