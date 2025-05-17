@@ -31,17 +31,17 @@
 
     <!-- hero section -->
     <div class="hero" id="home">
+        <div class="hero-bg"></div>
         <div class="hero-content">
             <div class="portfolio-title">Portfolio</div>
-            <h1>Viktor Kozak</h1>
-            <h2>Étudiant en Géographie</h2>
-            <div class="button">
-                <a href="assets/cv/mon-cv.pdf" target="_blank" class="btn">CV</a>
-                <button type="button" class="btn2">Me contacter</button>
+            <div class="hero-main">
+                <h1>Viktor Kozak</h1>
+                <h2>Étudiant en Géographie</h2>
+                <div class="button">
+                    <a href="assets/cv/mon-cv.pdf" target="_blank" class="btn">CV</a>
+                    <button type="button" class="btn2">Me contacter</button>
+                </div>
             </div>
-        </div>
-        <div class="hero-image">
-            <img src="assets/image/image (3).png" alt="">
         </div>
     </div>
 
@@ -209,7 +209,6 @@
         <div class="contact-container">
             <div class="contact-column logo-column">
                 <img src="assets/image/logoblanc.svg" alt="Logo Company">
-                <p>Viktor Kozak</p>
             </div>
             <div class="contact-column">
                 <h3>Contact</h3>
@@ -240,34 +239,51 @@
         </div>
     </section>
 
-    <!-- Modale Contact (à placer ici, en dehors de la section) -->
+    <!-- Modale Contact fusionnée (formulaire + coordonnées) -->
     <div id="contact-modal" class="modal contact-modal">
         <div class="modal-content contact-modal-content">
             <span class="modal-close contact-close">&times;</span>
-            <h3>Contactez-moi</h3>
-            <form>
-                <label for="name">Nom</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-                <button type="submit">Envoyer</button>
-            </form>
+            <div class="modal-columns">
+                <!-- Bloc formulaire -->
+                <div class="modal-form">
+                    <h3>Contactez-moi</h3>
+                    <form>
+                        <label for="name">Nom</label>
+                        <input type="text" id="name" name="name" required>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                        <button type="submit">Envoyer</button>
+                    </form>
+                </div>
+                <!-- Bloc coordonnées (fusionné, complet et à jour) -->
+                <div class="modal-coord">
+                    <h3>Mes coordonnées</h3>
+                    <ul class="coord-list">
+                        <li><strong>Téléphone :</strong> 06 12 34 56 78</li>
+                        <li><strong>Email :</strong> vkzk204@gmail.com</li>
+                        <li><strong>Ville :</strong> Paris, France</li>
+                        <li><strong>LinkedIn :</strong> <a href="#">viktorkozak</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Modale Coordonnées (à placer juste après le contact-modal) -->
+    <!-- Modale Coordonnées séparée (si besoin d'une modale coordonnées seule) -->
     <div id="coord-modal" class="modal coord-modal">
-        <div class="modal-content coord-modal-content">
+        <div class="modal-content">
             <span class="modal-close coord-close">&times;</span>
-            <h3>Mes coordonnées</h3>
-            <ul class="coord-list">
-                <li><strong>Téléphone :</strong> 06 12 34 56 78</li>
-                <li><strong>email :</strong> vkzk204@gmail.com</li>
-                <li><strong>Ville :</strong> Paris, France</li>
-                <li><strong>LinkedIn :</strong> <a href="#">viktorkozak</a></li>
-            </ul>
+            <div class="coord-inner">
+                <h3>Mes coordonnées</h3>
+                <ul class="coord-list">
+                    <li><strong>Téléphone :</strong> 06 12 34 56 78</li>
+                    <li><strong>Email :</strong> vkzk204@gmail.com</li>
+                    <li><strong>Ville :</strong> Paris, France</li>
+                    <li><strong>LinkedIn :</strong> <a href="#">viktorkozak</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 

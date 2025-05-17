@@ -7,6 +7,12 @@
     list-style: none;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
+    /* outline: 1px solid red; */
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100vw;
 }
 
 html {
@@ -52,6 +58,14 @@ header .logo img {
   display: block;
 }
 
+/* Nouvelle règle pour le logo dans la colonne */
+.logo-column img {
+  width: 70px;      /* Choisis la taille souhaitée */
+  height: auto;     /* Garde les proportions */
+  display: block;   /* Pour éviter un espace sous l'image */
+  margin-bottom: 8px; /* Optionnel : espace sous le logo */
+}
+
 /* Navigation */
 header .navbar ul {
     display: flex;
@@ -72,48 +86,68 @@ header .navbar ul li a:hover {
 
 /* Scroll down arrow */
 .scroll-down {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
+  left: 0;
+  right: 0;
   bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2rem;
-  color: #E4E5F2;
-  animation: bounce 2s infinite;
+  z-index: 10;
+  width: 100%;
   cursor: pointer;
-  z-index: 2;
+  animation: bounce 1.5s infinite;
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateX(-50%) translateY(0);
-  }
-  40% {
-    transform: translateX(-50%) translateY(-10px);
-  }
-  60% {
-    transform: translateX(-50%) translateY(-5px);
-  }
+  0%, 100% { transform: translateY(0);}
+  50% { transform: translateY(16px);}
 }
 
 /* Hero Section */
 .hero {
+    position: relative;
+    width: 100vw;
+    min-height: calc(100vh - 80px);
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    height: calc(100vh - 80px);
+    justify-content: flex-start;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
     background-image: url('../image/hero-banner-abstract.jpg');
     background-size: cover;
     background-position: center -130px;
     background-repeat: no-repeat;
-    padding: 0 80px;
-    position: relative;
     z-index: 0;
+    transform: none; /* <-- retire translateX(-50%) */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: 80vw;
+    max-width: 900px;
+    margin-left: 10vw;   /* Décale de 10% à gauche */
+    margin-right: 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .hero-content h1 {
     font-size: 36px;
     font-weight: bold;
-    margin-left: 100px;
+    margin-left: 0 !important;
     margin-bottom: -5px;
 }
 
@@ -121,7 +155,7 @@ header .navbar ul li a:hover {
     font-size: 30px;
     color: yellow;
     font-weight: 400;
-    margin-left: 100px;
+    margin-left: 0 !important;
     margin-bottom: 20px;
 }
 
@@ -133,16 +167,20 @@ header .navbar ul li a:hover {
 }
 
 .portfolio-title {
+    display: inline-block;
     font-size: 120px !important;
     font-weight: 900 !important;
-    margin-left: 100px !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 50px !important;
     color: #E4E5F2 !important;
     line-height: 1.2 !important;
     font-family: inherit !important;
     font-style: normal !important;
     position: relative;
     top: -40px;
+    /* width: 100%;  <-- retire cette ligne */
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
 }
 
 /* Hero image */
@@ -160,7 +198,8 @@ header .navbar ul li a:hover {
     align-items: center;
     gap: 35px;
     margin-top: 20px;
-    margin-left: 100px;
+    margin-left: 0; /* plus de décalage */
+    justify-content: flex-start;
 }
 
 .button .btn,
@@ -198,6 +237,16 @@ header .navbar ul li a:hover {
     transform: translateX(0) scale(1.05);
 }
 
+/* Effet d'agrandissement au survol pour les boutons du hero */
+.button .btn:hover,
+.button .btn2:hover,
+.button .btn:focus,
+.button .btn2:focus {
+    transform: scale(1.08);
+    box-shadow: 0 8px 32px #00379955;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
 /* Pour l'accessibilité : focus sur les boutons */
 .button .btn:focus,
 .button .btn2:focus {
@@ -211,23 +260,40 @@ header .navbar ul li a:hover {
   background-color: rgb(00, 07, 18);
   padding: 40px 20px;
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0; /* ou une valeur plus petite, ex: 10px */
+  padding-bottom: 20; /* si besoin */
 }
 
 .skills-section h2 {
   font-size: 2em;
   margin-bottom: 30px;
-  text-decoration: underline;
+  width: 80vw;
+  text-align: left;
 }
 
 .skill-category {
   margin-bottom: 40px;
-  padding: 20px;
+  padding: 0 4vw 20px 4vw; /* Ajoute du vide à gauche/droite */
   background-color: rgb(00, 07, 18);
   border-radius: 12px;
   box-shadow: 0 0 10px #2a2a2a;
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: none !important;
+  margin-left: 8vw;
+  margin-right: 8vw;
+  padding-left: 0;
+  padding-right: 0;
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .skill-category.visible {
@@ -241,10 +307,26 @@ header .navbar ul li a:hover {
   color: #ccc;
 }
 
+/* Centrer la grille d'icônes/labels */
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
+  justify-content: center;
+  width: 100%;
+  margin-left: 8vw;
+  margin-right: 8vw;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+  max-width: none;
+}
+
+@media (max-width: 700px) {
+  .skills-grid {
+    margin-left: 4vw;
+    margin-right: 4vw;
+  }
 }
 
 .skill {
@@ -276,8 +358,8 @@ header .navbar ul li a:hover {
 .savoir {
     background-color: #003799;
     color: #E4E5F2;
-    padding: 50px 100px;
-    margin-top: 40px;
+    padding: 50px 0; /* <-- padding horizontal à 0 */
+    margin-top: 0px; /* ou 0 pour coller les sections */
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -286,16 +368,16 @@ header .navbar ul li a:hover {
 .savoir::after {
     content: "";
     position: absolute;
-    left: 0;
+    left: -20px;
     top: 0;
-    width: 100%;
+    width: calc(100% + 40px);
     height: 22px;
     z-index: 0;
     background: linear-gradient(90deg, #00f0ff 0%, #003799 50%, #00f0ff 100%);
     background-size: 200% 100%;
     animation: neon-move 2.5s linear infinite;
     pointer-events: none;
-    border-radius: 32px 32px 0 0;
+    border-radius: 16px 16px 0 0;
     filter: blur(14px) brightness(1.5);
     opacity: 0.85;
 }
@@ -311,17 +393,23 @@ header .navbar ul li a:hover {
     gap: 40px;
     justify-content: center;
     margin-top: 40px;
+    flex-wrap: wrap;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .savoir-item {
     background: rgba(255,255,255,0.05);
     border-radius: 16px;
     padding: 30px 24px;
-    box-shadow: 0 4px 24px #00379933;
+    box-shadow: 0 4px 24px #10449f;
     text-align: center;
-    width: 300px;
+    flex: 1 1 220px; /* grandit pour occuper l'espace restant, mais garde une taille mini/maxi */
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .savoir-item:hover {
@@ -333,7 +421,7 @@ header .navbar ul li a:hover {
     width: 60px;
     height: 60px;
     margin-bottom: 18px;
-    color: #00f0ff;
+    color: #E4E5F2;
     transition: filter 0.3s;
 }
 
@@ -351,26 +439,49 @@ header .navbar ul li a:hover {
   animation: shake 0.5s;
 }
 
-/* Pour la section intro (about) */
+/* Pour la section intro (about) version "boîte blanche sans arrondi" et largeur max */
 .intro {
     background: #E4E5F2;
-    padding: 60px 0px 40px 0px;
-    width: 100%; /* prend toute la largeur de l'écran */
-    margin: 0; /* supprime le centrage */
-    text-align: center;
+    padding: 50px 0 50px 0;
+    margin: 0 auto;
+    border-radius: 0;
+    text-align: left;
+    width: 100%;         /* ou 100vw, mais pas les deux ! */
+    color: #1a233a;
+    overflow-x: hidden;
 }
+
 
 
 .intro h2 {
     font-size: 2.2em;
     margin-bottom: 18px;
-    color: #00f0ff;
+    color: #003799;
+    text-align: left;
 }
 
 .intro p {
     font-size: 1.1em;
-    color: #E4E5F2;
+    color: #2d3a4d;
     line-height: 1.7;
+    text-align: left;
+}
+
+/* Applique width: 80vw uniquement aux éléments internes de la section "A propos de moi" */
+.intro h2,
+.intro p {
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+@media (max-width: 700px) {
+  .intro h2,
+  .intro p {
+    margin-left: 4vw;
+    margin-right: 4vw;
+  }
 }
 
 /* Pour les liens dans .savoir-item (si tu ajoutes des liens) */
@@ -391,91 +502,546 @@ header .navbar ul li a:hover {
 }
 #projects h2 {
     font-size: 2em;
-    margin-bottom: 30px;
-    color: #00f0ff;
+    margin-bottom: 0px;
+    font-weight: 800;
+    color: rgb(00, 07, 18);
+}
+
+/* Surtitre : Creative Direction */
+.title-block h4 {
+  font-size: 1.3rem;        /* Taille de police */
+  font-weight: 600;         /* Épaisseur */
+  color: #0055ff;           /* Couleur */
+  margin-bottom: 12px;
+  letter-spacing: 0.04em;
+}
+
+/* Titre principal : Projets */
+.title-block h2 {
+  font-size: 2.8rem;        /* Taille de police */
+  font-weight: 800;         /* Épaisseur */
+  color: #22223b;           /* Couleur */
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+/* Mot "principaux" dans le titre */
+.title-block h2 span {
+  font-size: 2.2rem;        /* Taille de police */
+  font-weight: 400;         /* Épaisseur */
+  color: #4ea8de;           /* Couleur */
+}
+
+/* --- MODALES CONTACT & COORDONNÉES --- */
+.modal {
+  /* Ne pas appliquer d'animation ici, juste le fade général */
+  opacity: 0;
+  transition: opacity 0.3s;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0; right: 0; bottom: 0;
+  display: flex;                /* <-- AJOUTE cette ligne */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none; /* déjà présent */
+}
+.modal.show {
+  opacity: 1;
+  pointer-events: auto;
+  /* SUPPRIME cette ligne : animation: modalFadeIn ... */
+}
+/* L'arrière-plan : fade uniquement */
+.modal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(.4,0,.2,1);
+  z-index: 0;
+  pointer-events: none;
+  /* Pas de transform, pas d'animation ici */
+}
+.modal.show::before {
+  opacity: 1;
+}
+/* Le contenu modal : effet vertical uniquement sur la boîte */
+.modal-content,
+.contact-modal-content {
+  position: relative;      /* PAS absolute */
+  /* SUPPRIME ces lignes si présentes : */
+  /* top: 20%; */
+  /* left: auto; */
+  /* bottom: auto; */
+  /* transform: translateY(-50%); */
+  margin: 0;
+  max-height: 80vh;
+  overflow-y: auto;
+  /* Animation verticale + fade pour le contenu modal */
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: opacity 0.35s cubic-bezier(.4,0,.2,1), transform 0.35s cubic-bezier(.4,0,.2,1);
+}
+
+/* Quand la modale est ouverte, animation vers le centre */
+.modal.show .modal-content,
+.modal.show .contact-modal-content {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* SUPPRIME ou commente la keyframes modalFadeIn si elle n'est plus utilisée ailleurs */
+/* @keyframes modalFadeIn { ... } */
+
+.modal.open {
+  display: flex;
+}
+.modal-content {
+  background: #00000000;
+  color: #003799;
+  border-radius: 16px;
+  padding: 32px 24px;
+  max-width: none;
+  width: auto;
+  box-shadow: 0 8px 32px #00389900;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.modal-content.contact-modal-content {
+  max-width: none;
+  width: auto;
+  padding: 32px 24px;
+}
+.modal-columns {
+  display: flex;
+  flex-direction: row;
+  gap: 40px; /* espace entre les deux blocs */
+  justify-content: center;
+  align-items: flex-start;
+}
+.modal-form, .modal-coord {
+  flex: 1 1 240px;
+  min-width: 220px;
+  background: #E4E5F2;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.modal-close {
+  position: absolute;
+  top: 18px; right: 24px;
+  font-size: 2rem;
+  color: #003799;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+.modal-close:hover {
+  color: #00f0ff;
+}
+
+/* Contact form */
+.contact-modal-content h3 {
+  margin-bottom: 16px;
+  color: #003799;
+  text-align: left;
+}
+.contact-modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.contact-modal-content label {
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.contact-modal-content input,
+.contact-modal-content textarea {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #00379955;
+  font-size: 1em;
+  resize: none;
+}
+
+/* Agrandir uniquement le textarea du message dans le formulaire contact */
+.contact-modal-content textarea#message {
+  min-height: 140px;
+  height: 250px;
+  max-height: 400px;
+  font-size: 1em;
+}
+
+.contact-modal-content button[type="submit"] {
+  background: #003799;
+  color: #eff0f8;
+  border: none;
+  margin-top: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 10px;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.contact-modal-content button[type="submit"]:hover {
+  background: #3b79ff;
+  color: #003799;
+}
+
+/* Coordonnées */
+.coord-modal-content h3 {
+  margin-bottom: 16px;
+  color: #003799;
+  text-align: left;
+}
+.coord-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.coord-list li {
+  margin-bottom: 10px;
+  font-size: 1.05em;
+}
+.coord-list a {
+  color: #3b79ff;
+  text-decoration: underline;
+  word-break: break-all;
+}
+.coord-list a:hover {
+  color: yellowgreen;
 }
 
 /* Responsive */
-@media (max-width: 1100px) {
-  .hero {
-    padding: 0 20px;
-  }
-  .portfolio-title,
-  .hero-content h1,
-  .hero-content h2,
-  .hero-content p,
-  .button {
-    margin-left: 0 !important;
-  }
-  .savoir {
-    padding: 40px 10px;
-  }
-}
-
-@media (max-width: 800px) {
-  .hero {
-    flex-direction: column;
-    height: auto;
-    padding: 40px 10px;
-    text-align: center;
-  }
-  .hero-content {
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-  .portfolio-title {
-    font-size: 60px !important;
-    top: 0;
-    margin-bottom: 10px !important;
-  }
-  .button {
-    margin-left: 0;
-    justify-content: center;
-  }
-  .savoir-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-  }
-  .savoir-item {
-    width: 90vw;
-    max-width: 350px;
-  }
-}
-
 @media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    height: auto;
-    padding: 10px 5px;
+  .modal-content {
+    padding: 14px 4vw;
+    max-width: 98vw;
   }
-  .hero {
-    padding: 20px 5px;
-  }
-  .portfolio-title {
-    font-size: 36px !important;
-  }
-  .button .btn,
-  .button .btn2 {
-    width: 100px;
-    font-size: 14px;
-    padding: 8px;
-  }
-  .savoir {
-    padding: 20px 2vw;
-  }
-  .savoir-item {
-    padding: 18px 8px;
+  .modal-close {
+    top: 8px; right: 12px;
+    font-size: 1.5rem;
   }
 }
 
-/* Scrollbar custom */
-::-webkit-scrollbar {
-  width: 8px;
-  background: #003799;
+.modal.contact-modal.open,
+.modal.coord-modal.open {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 32px;
 }
-::-webkit-scrollbar-thumb {
-  background: #00f0ff;
-  border-radius: 4px;
+
+.modal.contact-modal.open {
+  width: auto;
+  min-width: 0;
+  background: transparent;
+  box-shadow: none;
+  position: fixed;
+  left: 0; top: 0; right: 0; bottom: 0;
+  pointer-events: none;
+}
+
+.modal.contact-modal.open .modal-content {
+  pointer-events: auto;
+}
+
+.modal.coord-modal.open {
+  width: auto;
+  min-width: 0;
+  background: transparent;
+  box-shadow: none;
+  position: fixed;
+  left: 0; top: 0; right: 0; bottom: 0;
+  pointer-events: none;
+}
+
+.modal.coord-modal.open .modal-content {
+  pointer-events: auto;
+}
+
+/* Positionnement côte à côte avec un vrai gap */
+.modal.contact-modal.open .modal-content {
+  margin-right: 48px;
+}
+.modal.coord-modal.open .modal-content {
+  margin-left: 0;
+}
+
+/* Centrage vertical */
+.modal.contact-modal.open .modal-content,
+.modal.coord-modal.open .modal-content {
+  align-self: center;
+}
+
+/* Responsive : empile sur mobile */
+@media (max-width: 900px) {
+  .modal.contact-modal.open,
+  .modal.coord-modal.open {
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+  }
+  .modal.contact-modal.open .modal-content,
+  .modal.coord-modal.open .modal-content {
+    margin: 0;
+    width: 95vw;
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 700px) {
+  .modal-columns {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+/* Masque les flèches de navigation de la modale par défaut */
+#project-modal .modal-nav {
+  display: none;
+}
+
+/* Affiche les flèches seulement quand la modale est ouverte */
+#project-modal.show .modal-nav {
+  display: block;
+}
+
+/* Optionnel : pour les rendre plus discrètes sur mobile */
+@media (max-width: 600px) {
+  #project-modal .modal-nav {
+    font-size: 1.5rem;
+    padding: 6px 12px;
+  }
+}
+
+/* --- SECTION PRINCIPALE DES PROJETS (adaptée à ton HTML) --- */
+
+/* Fond général doux */
+.projects {
+  background: #e6e6f1;
+  padding: 56px 0 60px;
+  min-height: 50vh;
+}
+
+/* Header de la section projets */
+.projects-header {
+  display: flex;
+  gap: 40px;
+  justify-content: flex-start; /* <-- alignement à gauche */
+  margin-top: 0px;
+  flex-wrap: wrap;
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: flex-end;
+}
+.title-block h4 {
+  color: rgba(0, 7, 18, 0.329);
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+.title-block h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #313133;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+.title-block h2 span {
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #9797a2;
+}
+
+/* Grille des cartes projets */
+.project-grid {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 40px;
+  flex-wrap: wrap;
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Carte projet */
+.project-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 18px rgba(51, 51, 61, 0.12);
+  padding: 28px 22px 18px 22px;
+  width: 340px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.17s cubic-bezier(.4,0,.2,1), box-shadow 0.17s cubic-bezier(.4,0,.2,1);
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  min-height: 260px;
+  text-decoration: none;
+}
+.project-card:hover, .project-card:focus {
+  transform: translateY(-6px) scale(1.025);
+  box-shadow: 0 8px 28px rgba(51,51,61,0.16);
+  border-color: #bcbce4;
+  outline: none;
+}
+.project-card h3 {
+  font-size: 1.18rem;
+  font-weight: 700;
+  margin-bottom: 0.2em;
+  color: #34343b;
+}
+.project-card p {
+  color: #74748b;
+  font-size: 1rem;
+  margin-bottom: 0.7em;
+  line-height: 1.44;
+}
+.project-image img {
+  width: 100%;
+  border-radius: 9px;
+  margin-top: auto;
+  object-fit: cover;
+  height: 98px;
+  background: #f1f1f7;
+  border: 1px solid #e6e6f1;
+  box-shadow: 0 1px 7px rgba(51,51,61,0.04);
+}
+
+/* Responsive pour la grille */
+@media (max-width: 1200px) {
+  .project-grid {
+    gap: 22px;
+  }
+  .project-card {
+    width: 300px;
+    padding: 22px 14px 12px 14px;
+  }
+}
+@media (max-width: 900px) {
+  .projects {
+    padding-top: 32px;
+  }
+  .project-grid {
+    gap: 14px;
+  }
+  .project-card {
+    width: 96vw;
+    max-width: 370px;
+    min-width: 0;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 600px) {
+  .projects {
+    padding: 16px 0 36px;
+  }
+  .project-grid {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .project-card {
+    width: 98vw;
+    max-width: 99vw;
+    min-width: 0;
+    padding: 12px 5px 6px 5px;
+    border-radius: 9px;
+  }
+  .project-image img {
+    height: 72px;
+  }
+}
+
+/* --- Pied de page (footer adapté à ton HTML) --- */
+.contact {
+  background: rgb(00, 07, 18);
+  color: #fff;
+  padding: 24px 0 18px 0;
+  margin-top: 0;
+  font-size: 1.01rem;
+}
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 36px 22px;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 32px;
+}
+.contact-column {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 120px;
+}
+.contact-column h3 {
+  color: #aaff5c;
+  font-weight: 700;
+  font-size: 1.09rem;
+  margin-bottom: 5px;
+}
+.contact-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #b8b9c7;
+  font-size: 0.97rem;
+}
+.contact-column ul li {
+  margin-bottom: 2px;
+}
+.contact-column a {
+  color: #fff;
+  transition: color 0.12s;
+  text-decoration: none;
+}
+.contact-column a:hover {
+  color: #aaff5c;
+  text-decoration: underline;
+}
+.copyright {
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 0px;
+  color: #abff5cbe;
+  font-size: 0.83rem;
+  padding-right: 32px;
+}
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+    gap: 18px;
+    align-items: stretch;
+    padding: 0 10px;
+  }
+  .copyright {
+    text-align: center;
+    padding-right: 0;
+  }
+}
+
+/* Modifications spécifiques pour la section savoir-faire */
+.savoir h2 {
+  font-size: 2.4rem;
+  color: #E4E5F2;
+  text-align: center;
+  margin-bottom: 36px;
+  margin-top: 0;
+  font-weight: 800;
+  letter-spacing: 0.01em;
 }

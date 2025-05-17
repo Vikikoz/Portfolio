@@ -58,18 +58,14 @@ const coordCloseBtn = coordModal.querySelector('.coord-close');
 
 // === Fonctions Modale Génériques ===
 function openModal(modalElement) {
-  modalElement.style.display = 'flex';
+  // modalElement.style.display = 'flex'; // SUPPRIME cette ligne
   requestAnimationFrame(() => {
     modalElement.classList.add('show');
   });
-  // Ne touche pas au scroll
 }
 function closeModal(modalElement) {
   modalElement.classList.remove('show');
-  setTimeout(() => {
-    modalElement.style.display = 'none';
-    // Ne touche pas au scroll
-  }, 300);
+  // setTimeout(() => { modalElement.style.display = 'none'; }, 300); // SUPPRIME cette ligne
 }
 
 // === Modale Projet ===
@@ -120,29 +116,15 @@ document.querySelectorAll('.project-card').forEach((card, idx) => {
 if (contactBtn) {
   contactBtn.addEventListener('click', () => {
     openModal(contactModal);
-    coordModal.classList.add('show');
   });
 }
 contactCloseBtn.addEventListener('click', (e) => {
   e.stopPropagation();
   closeModal(contactModal);
-  coordModal.classList.remove('show');
-});
-coordCloseBtn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  closeModal(contactModal);
-  coordModal.classList.remove('show');
 });
 contactModal.addEventListener("click", (e) => {
   if (e.target === contactModal) {
     closeModal(contactModal);
-    coordModal.classList.remove('show');
-  }
-});
-coordModal.addEventListener("click", (e) => {
-  if (e.target === coordModal) {
-    closeModal(contactModal);
-    coordModal.classList.remove('show');
   }
 });
 contactModal.querySelector('.contact-modal-content').addEventListener('click', (e) => {
@@ -200,6 +182,20 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+// Ajoute la classe 'pair-open' si les deux modales sont ouvertes
+function syncModals() {
+  const contact = document.getElementById('contact-modal');
+  const coord = document.getElementById('coord-modal');
+  const bothOpen = contact.classList.contains('open') && coord.classList.contains('open');
+  if (bothOpen) {
+    contact.classList.add('pair-open');
+    coord.classList.add('pair-open');
+  } else {
+    contact.classList.remove('pair-open');
+    coord.classList.remove('pair-open');
+  }
+}
 
 
 
