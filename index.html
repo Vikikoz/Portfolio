@@ -19,14 +19,18 @@
         </div>
         <div class="navbar">
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">A propos</a></li>
-                <li><a href="#service">Compétences</a></li>
-                <li><a href="#savoir">Savoir</a></li>
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#skills">Compétences</a></li>
                 <li><a href="#projects">Projets</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
+        <!-- Place ce bouton dans ton header, avant ou après la navbar -->
+        <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
     </header>
 
     <!-- hero section -->
@@ -148,35 +152,38 @@
                 <h2>Projets <span>principaux</span></h2>
             </div>
         </div>
-        <div class="project-grid">
-            <a href="#" class="project-card card1" draggable="false">
+        <div class="project-carousel">
+          <div class="project-grid">
+            <!-- Chaque .project-card ici -->
+            <div class="project-card card1" draggable="false">
                 <h3>Sujet 1</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <div class="project-image">
                     <img src="assets/projets/projet1.jpg" alt="Projet 1">
                 </div>
-            </a>
-            <a href="#" class="project-card card2" draggable="false">
+            </div>
+            <div class="project-card card2" draggable="false">
                 <h3>Sujet 2</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <div class="project-image">
                     <img src="assets/projets/projet2.jpg" alt="Projet 2">
                 </div>
-            </a>
-            <a href="#" class="project-card card3" draggable="false">
+            </div>
+            <div class="project-card card3" draggable="false">
                 <h3>Sujet 3</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <div class="project-image">
                     <img src="assets/projets/projet3.jpg" alt="Projet 3">
                 </div>
-            </a>
-            <a href="#" class="project-card card4" draggable="false">
+            </div>
+            <div class="project-card card4" draggable="false">
                 <h3>Sujet 4</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <div class="project-image">
                     <img src="assets/projets/projet4.jpg" alt="Projet 4">
                 </div>
-            </a>
+            </div>
+          </div>
         </div>
     </section>
 
@@ -205,39 +212,42 @@
         <button class="modal-nav next" aria-label="Projet suivant">&gt;</button>
     </div>
 
-    <section id="contact" class="contact">
-        <div class="contact-container">
-            <div class="contact-column logo-column">
-                <img src="assets/image/logoblanc.svg" alt="Logo Company">
-            </div>
-            <div class="contact-column">
-                <h3>Contact</h3>
-                <ul>
-                    <li><a href="mailto:vkzk204@gmail.com">vkzk204@gmail.com</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                </ul>
-            </div>
-            <div class="contact-column">
-                <h3>Liens Utiles</h3>
-                <ul>
-                    <li><a href="#">À propos</a></li>
-                    <li><a href="#">Projets</a></li>
-                </ul>
-            </div>
-            <div class="contact-column">
-                <h3>Réseaux</h3>
-                <div class="social-icons">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
+    <div class="contact-wrapper">
+        <section id="contact" class="contact">
+            <div class="contact-container">
+                <div class="contact-column logo-column">
+                    <img src="assets/image/logoblanc.svg" alt="Logo Company">
+                </div>
+                <div class="contact-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:vkzk204@gmail.com">vkzk204@gmail.com</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+                <div class="contact-column">
+                    <h3>Liens Utiles</h3>
+                    <ul>
+                        <li><a href="#">À propos</a></li>
+                        <li><a href="#">Projets</a></li>
+                    </ul>
+                </div>
+                <div class="contact-column">
+                    <h3>Réseaux</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <hr>
-        <div class="copyright">
-            <p>© Copyright. Tous droits réservés.</p>
-        </div>
-    </section>
+            <hr>
+            <div class="copyright">
+                <p>© Copyright. Tous droits réservés.</p>
+            </div>
+        </section>
+        <div id="contact-gradient-bg"></div>
+    </div>
 
     <!-- Modale Contact fusionnée (formulaire + coordonnées) -->
     <div id="contact-modal" class="modal contact-modal">
@@ -262,7 +272,7 @@
                     <h3>Mes coordonnées</h3>
                     <ul class="coord-list">
                         <li><strong>Téléphone :</strong> 06 12 34 56 78</li>
-                        <li><strong>Email :</strong> vkzk204@gmail.com</li>
+                        <li><strong>email :</strong> vkzk204@gmail.com</li>
                         <li><strong>Ville :</strong> Paris, France</li>
                         <li><strong>LinkedIn :</strong> <a href="#">viktorkozak</a></li>
                     </ul>
@@ -286,7 +296,6 @@
             </div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
